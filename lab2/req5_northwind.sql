@@ -1,0 +1,11 @@
+SET GLOBAL event_scheduler = 1;
+
+USE northwind;
+
+DROP EVENT IF EXISTS run_req3;
+
+CREATE EVENT run_req3
+ON SCHEDULE EVERY 5 MINUTE
+STARTS '2022-11-01 08:00:00'
+ENDS '2023-08-01 00:00:00'
+DO CALL currency_exchange(0);
